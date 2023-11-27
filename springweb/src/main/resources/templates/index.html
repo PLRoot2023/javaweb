@@ -6,6 +6,13 @@
 </head>
 <body>
     <p th:text="|Hello, ${name}!|"></p>
-    <a href="/subpage/sub1">next page</a>
+    <p th:text="|message, ${message.msgNo}!|"></p>
+    <p th:text="|message, ${message.msg}!|"></p>
+    <a href="/subpage/sub1">error link next page</a>
+    <a th:href="@{/subpage/sub1}">next page</a>
+    <a th:href="@{/subpage/form}">next page</a>
+    <div th:each="men:${men}">
+        <span th:text="${men.name}"></span>
+    </div>
 </body>
 </html>
