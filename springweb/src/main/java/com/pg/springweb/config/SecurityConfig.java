@@ -15,14 +15,15 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/**").permitAll()
-                        .anyRequest().authenticated()
+                        .requestMatchers("/index").authenticated()
+                        .requestMatchers("/hello").permitAll()
+
                 )
                 .formLogin(formLogin -> formLogin
                         .loginPage("/login")
                         .permitAll()
                 )
-                .rememberMe(Customizer.withDefaults());
+               .rememberMe(Customizer.withDefaults());
         return http.build();
     }
 
